@@ -1,0 +1,95 @@
+# make `make` multicore
+alias make="make -j5"
+alias mk="make -j5"
+
+# cp recursive & verbose
+alias cp='cp -Rv'
+alias copy='rsync -aP'
+# Make mv confirm before overwriting
+alias mv='mv -i'
+
+# ls
+alias ls='ls -F --human-readable'
+alias la='ls -AF --human-readable'
+alias ll='ls -lhF --human-readable'
+alias l='ls -lhF --human-readable'
+#alias sl='sl -aFc'
+
+# git
+alias wow='git status'
+alias such=git
+alias very=git
+g() {
+    if [ $# -eq 0 ];
+    then
+        git status -sb
+    else
+        git "$@"
+    fi
+}
+compdef g=git
+
+# random
+alias ping=prettyping.sh
+alias showip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias whatyearisit='date && hostname && cat /etc/*-release && whoami && pwd'
+alias pong='ping google.com'
+alias pong_nodns='ping 8.8.8.8'
+alias mnt='mount | column -t'
+alias insult='wget http://www.randominsults.net -O - 2>/dev/null | grep \<strong\> | sed "s;^.*<i>\(.*\)</i>.*$;\1;";'
+alias dmesg='dmesg -T'
+alias sys='sudo systemctl'
+compdef sys='systemctl'
+alias vi='vim -u NONE'
+
+# grep
+alias grep='grep --color=auto'
+alias psf='pgrep -lf'
+
+# Misc
+alias df=pydf
+
+# Lelz
+alias fucking='sudo'
+compdef fucking='sudo'
+alias please='sudo !!'
+alias starwars='telnet towel.blinkenlights.nl'
+alias fuck='killall -9'
+# e.g. `fuck firefox`
+compdef fuck='killall'
+alias poweroff='systemctl poweroff'
+alias reboot='systemctl reboot'
+alias vim=vim.nox
+
+# Help for HTTP status codes
+function http() {
+    curl http://httpcode.info/$1
+}
+# Terminology only
+function httpcat() {
+    typop /usr/share/statuscodecats/$1.jpg
+}
+function httpdog() {
+    typop /usr/share/statuscodedogs/$1.jpg
+}
+
+# vim
+alias :wq="echo You\'re not in vim, dummy"
+alias :q="echo You\'re not in vim, dummy"
+
+# colored man
+man() {
+    env LESS_TERMCAP_mb=$'\E[01;31m' \
+    LESS_TERMCAP_md=$'\E[01;38;5;74m' \
+    LESS_TERMCAP_me=$'\E[0m' \
+    LESS_TERMCAP_se=$'\E[0m' \
+    LESS_TERMCAP_so=$'\E[38;5;246m' \
+    LESS_TERMCAP_ue=$'\E[0m' \
+    LESS_TERMCAP_us=$'\E[04;38;5;146m' \
+    man "$@"
+}
+
+# ingore output crap from graphical programs
+launch() {
+    nohup "$@" &>/dev/null &
+}

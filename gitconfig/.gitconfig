@@ -1,0 +1,19 @@
+[user]
+	email = anthonyclays@gmail.com
+	name = Anthony Clays
+[push]
+	default = simple
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+	co = checkout
+	c = commit
+	br = branch
+	s = status
+	unstage = reset HEAD --
+	last = log -1 HEAD
+[github]
+	user = anthonyclays
+[git-up "bundler"]
+	check = false
+[git-up "fetch"]
+	prune = true

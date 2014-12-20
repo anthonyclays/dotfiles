@@ -1,0 +1,3 @@
+#!/bin/sh
+
+tty-clock -cxbC6 $*
