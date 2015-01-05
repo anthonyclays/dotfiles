@@ -1,38 +1,42 @@
 set nocompatible
 
-" Setup runtime path
-set rtp+=~/.vim/bundle/Vundle.vim
+" Setup runtime path (Vundle only)
+"set rtp+=~/.vim/bundle/Vundle.vim
 
-" Vundle plugin list
-call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'scrooloose/syntastic'
-Plugin 'Shougo/vimproc.vim'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'sudar/vim-arduino-snippets'
-Plugin 'bonsaiben/bootstrap-snippets'
-Plugin 'lervag/vim-latex'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'majutsushi/tagbar'
-Plugin 'raimondi/delimitMate'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'tpope/vim-speeddating'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-repeat'
-Plugin 'haya14busa/incsearch.vim'
-Plugin 'baeuml/summerfruit256.vim'
-Plugin 'jnurmine/Zenburn'
-Plugin 'vim-scripts/closetag.vim'
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-easytags'
-Plugin 'scrooloose/nerdtree'
-Plugin 'jmcantrell/vim-virtualenv'
-Plugin 'bling/vim-airline'
-call vundle#end()
+" Plug plugin list
+call plug#begin('~/.vim/plugged')
+Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/syntastic'
+Plug 'Shougo/vimproc.vim'
+" Plugin 'Valloric/YouCompleteMe'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'sudar/vim-arduino-snippets', {'for': 'arduino'}
+Plug 'bonsaiben/bootstrap-snippets', {'for': 'html'}
+Plug 'lervag/vim-latex', {'for': 'latex'}
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'majutsushi/tagbar'
+Plug 'raimondi/delimitMate'
+Plug 'tomtom/tcomment_vim'
+Plug 'kien/ctrlp.vim'
+Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'haya14busa/incsearch.vim'
+Plug 'baeuml/summerfruit256.vim'
+Plug 'jnurmine/Zenburn'
+Plug 'closetag.vim', {'for': 'html'}
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-easytags'
+Plug 'scrooloose/nerdtree',
+Plug 'jmcantrell/vim-virtualenv', {'for': 'python'}
+Plug 'bling/vim-airline'
+Plug 'JuliaLang/julia-vim', {'for': 'julia'}
+Plug 'jplaut/vim-arduino-ino'", {'for': 'arduino'}
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'argtextobj.vim'
+Plug 'bkad/CamelCaseMotion'
+call plug#end()
 
 " Plugin settings
 "YouCompleteMe
@@ -52,6 +56,17 @@ let g:snips_author='Anthony Clays'
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
+"Julia-vim
+let g:latex_to_unicode_tab = 0
+let g:latex_to_unicode_auto = 1
+" LaTeX
+let g:tex_flavor = "latex"
+" Power/airline
+"source /usr/share/vim/addons/plugin/powerline.vim
+let g:airline_powerline_fonts = 1
+set laststatus=2
+set showtabline=2
+set noshowmode
 
 
 " Basic vim options
@@ -82,7 +97,7 @@ set timeoutlen=1000
 set ttimeoutlen=0
 set wildmenu
 set clipboard+=unnamedplus
-"set showbreak=↪ 
+"set showbreak=↪
 
 " Set the colorscheme
 "colorscheme elflord
@@ -92,9 +107,6 @@ colorscheme zenburn
 filetype plugin indent on
 syntax on
 
-" LaTeX
-let g:tex_flavor = "latex"
-
 " Get off my lawn
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
@@ -103,12 +115,6 @@ nnoremap <Down> :echoe "Use j"<CR>
 
 " FUCK YOU EX
 nnoremap Q <nop>
-
-" Powerline statusline
-source /usr/share/vim/addons/plugin/powerline.vim
-set laststatus=2
-set showtabline=2
-set noshowmode
 
 " Associate .pde filetype with Arduino
 autocmd! BufNewFile,BufRead *.pde setlocal ft=arduino
@@ -129,4 +135,3 @@ nnoremap <Leader>rtw :%s/\s\+$//e<cr>
 " make j and k more natural
 nnoremap j gj
 nnoremap k gk
-
