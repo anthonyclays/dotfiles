@@ -11,6 +11,7 @@
 	s = status
 	unstage = reset HEAD --
 	last = log -1 HEAD
+	d = icdiff
 [github]
 	user = anthonyclays
 [git-up "bundler"]
