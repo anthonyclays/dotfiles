@@ -25,10 +25,13 @@ setopt hist_verify
 setopt hist_ignore_all_dups
 
 export EDITOR=vim
+export BROWSER=firefox
 # Use cope to auto-colorize common commands, include perl/ruby paths
-export PATH=/usr/share/perl5/vendor_perl/auto/share/dist/Cope:${PATH}:/usr/bin/vendor_perl:~/bin:~/.gem/ruby/2.1.0/bin:~/perl5/bin
+#export PATH=/usr/share/perl5/vendor_perl/auto/share/dist/Cope:${PATH}:/usr/bin/vendor_perl:~/bin:~/.gem/ruby/2.1.0/bin:~/perl5/bin
+export PATH=${PATH}:/usr/bin/vendor_perl:~/bin:~/.gem/ruby/2.1.0/bin:~/perl5/bin
 export USE_CCACHE=1
 export PYTHONPATH=/usr/lib/python3.4/site-packages
+export WORKON_HOME=~/Envs
 
 # create a zkbd compatible hash;
 # to add other keys to this hash, see: man 5 terminfo
@@ -78,13 +81,14 @@ fi
 
 autoload -U colors && colors
 #autoload -U promptinit && promptinit
-
 autoload -Uz compinit && compinit
 
 say() { if [[ "${1}" =~ -[a-z]{2} ]]; then local lang=${1#-}; local text="${*#$1}"; else local lang=${LANG%_*}; local text="$*";fi; mplayer "http://translate.google.com/translate_tts?ie=UTF-8&tl=${lang}&q=${text}" &> /dev/null ; }
 
 #source /etc/environment
+source /usr/share/zsh/plugins/zsh-syntax-highlighting.zsh
 source /usr/share/powerline/bindings/zsh/powerline.zsh
+#source /usr/local/bin/virtualenvwrapper.sh
 source ~/.shell_aliases
 
 if [ "$TERM" = "linux" ]; then
@@ -118,7 +122,7 @@ PERL_MM_OPT="INSTALL_BASE=/home/anthony/perl5"; export PERL_MM_OPT;
 eval "$(fasd --init posix-alias zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install)"
 alias c=fasd_cd
 alias v='f -e vim'
-alias m='f -e mpv --vo=opengl-hq'
+alias m='f -e mpv'
 alias o='a -e xdg-open'
 
 # Fast switching between vim and shell

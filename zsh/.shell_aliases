@@ -41,6 +41,8 @@ alias dmesg='dmesg -T'
 alias sys='sudo systemctl'
 compdef sys='systemctl'
 alias vi='vim -u NONE'
+alias vim='vim.athena'
+alias mpv='mpv --vo=opengl-hq'
 
 # grep
 alias grep='grep --color=auto'
@@ -59,7 +61,6 @@ alias fuck='killall -9'
 compdef fuck='killall'
 alias poweroff='systemctl poweroff'
 alias reboot='systemctl reboot'
-alias vim=vim.nox
 
 # Help for HTTP status codes
 function http() {
@@ -79,13 +80,14 @@ alias :q="echo You\'re not in vim, dummy"
 
 # colored man
 man() {
-    env LESS_TERMCAP_mb=$'\E[01;31m' \
-    LESS_TERMCAP_md=$'\E[01;38;5;74m' \
-    LESS_TERMCAP_me=$'\E[0m' \
-    LESS_TERMCAP_se=$'\E[0m' \
-    LESS_TERMCAP_so=$'\E[38;5;246m' \
-    LESS_TERMCAP_ue=$'\E[0m' \
-    LESS_TERMCAP_us=$'\E[04;38;5;146m' \
+    env \
+    LESS_TERMCAP_mb=$(printf "\e[38;5;146m") \
+    LESS_TERMCAP_md=$(printf "\e[38;5;3m") \
+    LESS_TERMCAP_me=$(printf "\e[38;5;138m") \
+    LESS_TERMCAP_se=$(printf "\e[38;5;246m") \
+    LESS_TERMCAP_so=$(printf "\e[38;5;146m") \
+    LESS_TERMCAP_ue=$(printf "\e[38;5;246m") \
+    LESS_TERMCAP_us=$(printf "\e[38;5;174m") \
     man "$@"
 }
 
