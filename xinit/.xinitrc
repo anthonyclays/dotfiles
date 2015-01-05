@@ -1,5 +1,4 @@
-#ME/.gnupg/gpg-agent.env"
-#if [[ -e "$envfile" ]] && kill -0 $(grep GPG_AGENT_INFO "")
+#!/bin/bash
 ######################################################
 ## Configuration file for Xinit - run startx to use. #
 ## Created by Anthony Clays                          #
@@ -11,7 +10,7 @@
 # Load Xresources
 #[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 # Hide mouse when not in use
-unclutter &
+unclutter -idle 5 &
 # Load xbindkeys
 xbindkeys
 # Setting keyboard layout in X
