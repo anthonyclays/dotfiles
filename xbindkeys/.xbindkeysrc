@@ -39,7 +39,7 @@
    control+shift + q
 
 #start terminal
-"terminology"
+"konsole"
     m:0x18 + c:36
     Alt+Mod2 + Return
 
