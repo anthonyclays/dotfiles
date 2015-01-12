@@ -1,3 +1,10 @@
+[core]
+    ignorecase = false
+    autocrlf = false
+    excludesfile = ~/.gitexcludes
+    preloadindex = true
+[merge]
+    tool = vimdiff
 [user]
 	email = anthonyclays@gmail.com
 	name = Anthony Clays
@@ -5,16 +12,33 @@
 	default = simple
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+    b = branch
+    ba = branch --all
 	co = checkout
 	c = commit
 	br = branch
-	s = status
+	s = !git status -sb && git stash list
 	unstage = reset HEAD --
 	last = log -1 HEAD
-	d = icdiff
+	d = icdiff # needs git-icdiff
+	w = wtf # needs git-wtf
 [github]
 	user = anthonyclays
 [git-up "bundler"]
 	check = false
 [git-up "fetch"]
 	prune = true
+[color]
+	ui = yes
+[color "branch"]
+    current = bold white green
+    local = bold yellow
+    remote = bold magenta
+[color "status"]
+    # Staged
+    added = bold green
+    updated = bold white green
+    # Unstaged
+    changed = bold yellow
+    untracked = bold cyan
+    nobranch = bold red white

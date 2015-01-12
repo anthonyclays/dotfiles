@@ -95,3 +95,6 @@ man() {
 launch() {
     nohup "$@" &>/dev/null &
 }
+alias okular='launch okular'
+compdef launch='sudo'
+compdef okular='okular'

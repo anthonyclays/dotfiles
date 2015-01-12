@@ -1,0 +1,12 @@
+# vim
+*.swp
+
+# ctags
+tags
+!tags/
+
+# Compiled objects
+*.pyc
+*.o
+*.so
+*.class

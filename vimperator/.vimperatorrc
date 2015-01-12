@@ -2,5 +2,6 @@ set animations
 set autocomplete
 set visualbell
 set wildmode=list:longest,full
+set complete=l
 
 set editor='terminology -e PYTHONPATH=/usr/lib/python3.4/site-packages vim -f'

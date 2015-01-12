@@ -36,6 +36,9 @@ Plug 'jplaut/vim-arduino-ino'", {'for': 'arduino'}
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'argtextobj.vim'
 Plug 'bkad/CamelCaseMotion'
+Plug 'ldong/vim_loremipsum'
+Plug 'wting/rust.vim'
+Plug 'justinmk/vim-sneak'
 call plug#end()
 
 " Plugin settings
@@ -64,10 +67,24 @@ let g:tex_flavor = "latex"
 " Power/airline
 "source /usr/share/vim/addons/plugin/powerline.vim
 let g:airline_powerline_fonts = 1
+let g:airline_theme = 'murmur'
 set laststatus=2
 set showtabline=2
 set noshowmode
-
+" replace 'f' with 1-char Sneak
+nmap f <Plug>Sneak_f
+nmap F <Plug>Sneak_F
+xmap f <Plug>Sneak_f
+xmap F <Plug>Sneak_F
+omap f <Plug>Sneak_f
+omap F <Plug>Sneak_F
+" replace 't' with 1-char Sneak
+nmap t <Plug>Sneak_t
+nmap T <Plug>Sneak_T
+xmap t <Plug>Sneak_t
+xmap T <Plug>Sneak_T
+omap t <Plug>Sneak_t
+omap T <Plug>Sneak_T
 
 " Basic vim options
 set tabstop=4
