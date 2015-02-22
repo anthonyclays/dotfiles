@@ -1,6 +1,5 @@
 #!/bin/bash
 mkdir -p "/tmp/$USER"
 import -window root "/tmp/$USER/lockscreen.png"
-# convert "/tmp/$USER/lockscreen.png" -blur 0x06 "/tmp/$USER/lockscreenblur.png"
-convert "/tmp/$USER/lockscreen.png" -paint 3 "/tmp/$USER/lockscreenblur.png"
-i3lock --image="/tmp/$USER/lockscreenblur.png" --no-unlock-indicator 
+convert "/tmp/$USER/lockscreen.png" -gaussian-blur 1 "/tmp/$USER/lockscreenblur.png"
+i3lock --image="/tmp/$USER/lockscreenblur.png" --no-unlock-indicator

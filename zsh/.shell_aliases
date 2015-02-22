@@ -41,8 +41,9 @@ alias dmesg='dmesg -T'
 alias sys='sudo systemctl'
 compdef sys='systemctl'
 alias vi='vim -u NONE'
-alias vim='vim.athena'
+#alias vim='vim.athena'
 alias mpv='mpv --vo=opengl-hq'
+alias tmux='tmux -2'
 
 # grep
 alias grep='grep --color=auto'
@@ -94,7 +95,12 @@ man() {
 # ingore output crap from graphical programs
 launch() {
     nohup "$@" &>/dev/null &
+    disown
 }
 alias okular='launch okular'
 compdef launch='sudo'
 compdef okular='okular'
+
+alias ipython=ptipython
+
+alias emacs='emacs -nw'

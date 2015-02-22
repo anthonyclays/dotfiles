@@ -24,7 +24,7 @@ function main()
   # make sure album_urls isn't empty.
   if [[ -z "${album_urls[0]}" ]]
   then
-    debug "album_urls[0] is empty" 
+    debug "album_urls[0] is empty"
     short_desc
     exit 1
   fi
@@ -41,7 +41,7 @@ function main()
     # Create a new folder for the images.
     folder_name="$(parse_folder_name)"
     stdout "$folder_name"
-    debug "folder_name = $folder_name" 
+    debug "folder_name = $folder_name"
 
     # Save link to album in a text file with the images.
     echo "$url" >> "$folder_name/permalink.txt"
@@ -228,7 +228,7 @@ function debug()
 }
 function parse_album_urls()
 {
-  # Populate album_urls with imgur albums. 
+  # Populate album_urls with imgur albums.
   main_url=("$@")
   debug "urls to parse: ${main_url[@]}"
   for (( i = 0 ; i < "${#@}" ; i++ )); do
@@ -315,11 +315,11 @@ do
       # Preserve Imgur's naming scheme. Please note that this will not keep the
       # order of the images. While this does break the spirit of the script it
       # is included here for the sake of completion.
-      preserve_flag="TRUE" && debug "Preserve Flag Raised" 
+      preserve_flag="TRUE" && debug "Preserve Flag Raised"
       ;;
     s)
       # Run silently.
-      silent_flag="TRUE" && debug "Silent Flag Raised" 
+      silent_flag="TRUE" && debug "Silent Flag Raised"
       ;;
     '?' | *)
       stdout "Invalid option: -$OPTARG" >&2
@@ -329,7 +329,7 @@ do
 done
 shift $((OPTIND - 1))
 
-systems_check 
+systems_check
 if [[ "$debug_flag" == "TRUE" ]]
 then # Run a check to see if this script is the latest version.
   update_check

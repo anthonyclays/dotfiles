@@ -424,7 +424,7 @@ def start():
     parser.add_option("--line-numbers", default=False,
                       action="store_true",
                       help="generate output with line numbers")
-    parser.add_option("--no-bold", default=False,
+    parser.add_option("--no-bold", default=True,
                       action="store_true",
                       help="use non-bold colors; recommended for with solarized")
     parser.add_option("--no-headers", default=False,

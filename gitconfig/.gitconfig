@@ -11,7 +11,7 @@
 [push]
 	default = simple
 [alias]
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(blue)<%an>%Creset' --abbrev-commit
     b = branch
     ba = branch --all
 	co = checkout
@@ -22,6 +22,7 @@
 	last = log -1 HEAD
 	d = icdiff # needs git-icdiff
 	w = wtf # needs git-wtf
+	cl = clone
 [github]
 	user = anthonyclays
 [git-up "bundler"]
@@ -31,14 +32,14 @@
 [color]
 	ui = yes
 [color "branch"]
-    current = bold white green
-    local = bold yellow
-    remote = bold magenta
+    current = white green
+    local = yellow
+    remote = magenta
 [color "status"]
     # Staged
-    added = bold green
-    updated = bold white green
+    added = green
+    updated = white green
     # Unstaged
-    changed = bold yellow
-    untracked = bold cyan
-    nobranch = bold red white
+    changed = yellow
+    untracked = cyan
+    nobranch = red white
