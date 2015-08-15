@@ -8,17 +8,18 @@
 # Set the cursor (needed for Xmonad, among others)
 #xsetroot -cursor_name left_ptr
 # Load Xresources
-#[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
+[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 # Hide mouse when not in use
 unclutter -idle 5 &
 # Load xbindkeys
 xbindkeys
 # Setting keyboard layout in X
 setxkbmap -layout be-latin1
+setxkbmap -option caps:escape
 # Setting X to lock after 1 minute of inactivity
 #xautolock -time 5 -locker ~/bin/lock &
 # Starting the urxvt daemon
-#urxvtd --quiet --opendisplay --fork
+urxvtd --quiet --opendisplay --fork
 # Starting the powerline daemon
 PYTHONPATH=/usr/lib/python3.4/site-packages powerline-daemon -q
 # Starting the GnuPG agent
@@ -34,8 +35,8 @@ export SSH_AUTH_SOCK   # enable gpg-agent for ssh
 ## Possible WMs/DEs, uncomment the one you want to use
 # exec startfluxbox
 # exec i3
-exec startkde
-# exec gnome-session
+# exec startkde
+exec gnome-session
 # exec enlightenment_start
 # exec cinnamon-session
 # exec startxfce4

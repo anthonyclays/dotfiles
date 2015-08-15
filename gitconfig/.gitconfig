@@ -1,19 +1,19 @@
 [core]
-    ignorecase = false
-    autocrlf = false
-    excludesfile = ~/.gitexcludes
-    preloadindex = true
+	ignorecase = false
+	autocrlf = false
+	excludesfile = ~/.gitexcludes
+	preloadindex = true
 [merge]
-    tool = vimdiff
+	tool = vimdiff
 [user]
 	email = anthonyclays@gmail.com
 	name = Anthony Clays
 [push]
 	default = simple
 [alias]
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(blue)<%an>%Creset' --abbrev-commit
-    b = branch
-    ba = branch --all
+	lg = log --color --decorate --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(blue)<%an>%Creset' --abbrev-commit
+	b = branch
+	ba = branch --all
 	co = checkout
 	c = commit
 	br = branch
@@ -32,14 +32,14 @@
 [color]
 	ui = yes
 [color "branch"]
-    current = white green
-    local = yellow
-    remote = magenta
+	current = white green
+	local = yellow
+	remote = magenta
 [color "status"]
-    # Staged
-    added = green
-    updated = white green
-    # Unstaged
-    changed = yellow
-    untracked = cyan
-    nobranch = red white
+	# Staged
+	added = green
+	updated = white green
+	# Unstaged
+	changed = yellow
+	untracked = cyan
+	nobranch = red white

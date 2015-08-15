@@ -22,12 +22,13 @@ setopt share_history
 setopt hist_verify
 setopt hist_ignore_all_dups
 
-alias vim=nvim
-export EDITOR=nvim
+
+# alias vim=nvim
+export EDITOR=vim
 export BROWSER=firefox
 # Use cope to auto-colorize common commands, include perl/ruby paths
 #export PATH=/usr/share/perl5/vendor_perl/auto/share/dist/Cope:${PATH}:/usr/bin/vendor_perl:~/bin:~/.gem/ruby/2.1.0/bin:~/perl5/bin
-export PATH=${PATH}:/usr/bin/vendor_perl:~/bin:~/.gem/ruby/2.1.0/bin:~/perl5/bin
+export PATH=${PATH}:/usr/sbin:/usr/bin/vendor_perl:~/bin:~/.gem/ruby/2.1.0/bin:~/perl5/bin:~/.cabal/bin
 export USE_CCACHE=1
 export PYTHONPATH=/usr/lib/python2.7/site-packages
 export WORKON_HOME=~/Envs
@@ -37,8 +38,10 @@ export WORKON_HOME=~/Envs
 typeset -A key
 
 # bind CTRL + left / right to word jumping
-bindkey ';5D' emacs-backward-word
-bindkey ';5C' emacs-forward-word
+# bindkey ";5D" emacs-backward-word
+# bindkey ";5C" emacs-forward-word
+bindkey '\e0c' forward-word
+bindkey '\e0d' backward-word
 bindkey "^[[A" history-search-backward
 bindkey "^[[B" history-search-forward
 
@@ -112,6 +115,7 @@ if [ "$TERM" = "linux" ]; then
     clear #for background artifacting
 fi
 
+# Perl
 PERL5LIB="/home/anthony/perl5/lib/perl5${PERL5LIB+:}${PERL5LIB}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="/home/anthony/perl5${PERL_LOCAL_LIB_ROOT+:}${PERL_LOCAL_LIB_ROOT}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/home/anthony/perl5\""; export PERL_MB_OPT;
