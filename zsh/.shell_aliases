@@ -9,11 +9,15 @@ alias copy='rsync -aP'
 alias mv='mv -i'
 
 # ls
-alias ls='ls -F --human-readable'
-alias la='ls -AF --human-readable'
-alias ll='ls -lhF --human-readable'
-alias l='ls -lhF --human-readable'
+# alias ls='ls -F --human-readable'
+alias l='exa -l'
+alias la='exa -la'
+alias ll='exa -l'
+# alias la='ls -AF --human-readable'
+# alias ll='ls -lhF --human-readable'
+# alias l='ls -lhF --human-readable'
 #alias sl='sl -aFc'
+alias e='exa -l'
 
 # git
 alias wow='git status'
@@ -36,7 +40,7 @@ alias whatyearisit='date && hostname && cat /etc/*-release && whoami && pwd'
 alias pong='ping google.com'
 alias pong_nodns='ping 8.8.8.8'
 alias mnt='mount | column -t'
-alias insult='wget http://www.randominsults.net -O - 2>/dev/null | grep \<strong\> | sed "s;^.*<i>\(.*\)</i>.*$;\1;";'
+alias insult='wget http://www.randominsults.net -O - 2>/dev/null | grep \<strong\> | sed "s;^.*<i>\(.*\)</i>.*$;\1;"'
 alias dmesg='dmesg -T'
 alias sys='sudo systemctl'
 compdef sys='systemctl'
@@ -64,7 +68,7 @@ alias poweroff='systemctl poweroff'
 alias reboot='systemctl reboot'
 
 # Help for HTTP status codes
-function http() {
+function httpcode() {
     curl http://httpcode.info/$1
 }
 # Terminology only
@@ -80,15 +84,28 @@ alias :wq="echo You\'re not in vim, dummy"
 alias :q="echo You\'re not in vim, dummy"
 
 # colored man
+# man() {
+#     env \
+#     LESS_TERMCAP_mb=$(printf "\e[38;5;146m") \
+#     LESS_TERMCAP_md=$(printf "\e[38;5;3m") \
+#     LESS_TERMCAP_me=$(printf "\e[38;5;138m") \
+#     LESS_TERMCAP_se=$(printf "\e[38;5;246m") \
+#     LESS_TERMCAP_so=$(printf "\e[38;5;146m") \
+#     LESS_TERMCAP_ue=$(printf "\e[38;5;246m") \
+#     LESS_TERMCAP_us=$(printf "\e[38;5;174m") \
+#     man "$@"
+# }
+
+# colored man
 man() {
     env \
-    LESS_TERMCAP_mb=$(printf "\e[38;5;146m") \
-    LESS_TERMCAP_md=$(printf "\e[38;5;3m") \
-    LESS_TERMCAP_me=$(printf "\e[38;5;138m") \
-    LESS_TERMCAP_se=$(printf "\e[38;5;246m") \
-    LESS_TERMCAP_so=$(printf "\e[38;5;146m") \
-    LESS_TERMCAP_ue=$(printf "\e[38;5;246m") \
-    LESS_TERMCAP_us=$(printf "\e[38;5;174m") \
+    LESS_TERMCAP_mb=$(printf "\e[01;33m") \
+    LESS_TERMCAP_md=$(printf "\e[01;33m") \
+    LESS_TERMCAP_me=$(printf "\e[00m") \
+    LESS_TERMCAP_se=$(printf "\e[00m") \
+    LESS_TERMCAP_so=$(printf "\033[34m") \
+    LESS_TERMCAP_ue=$(printf "\e[00m") \
+    LESS_TERMCAP_us=$(printf "\e[04;34m") \
     man "$@"
 }
 
@@ -101,6 +118,8 @@ alias okular='launch okular'
 compdef launch='sudo'
 compdef okular='okular'
 
-alias ipython=ptipython
+# alias ipython=ptipython
+alias p=ptipython
+alias j="/opt/julia-1c7e701efc/bin/julia -q"
 
-alias emacs='emacs -nw'
+# alias emacs='emacs -nw'
