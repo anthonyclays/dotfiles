@@ -1,51 +1,55 @@
 set nocompatible
 
 call plug#begin('~/.vim/plugged')
-Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/syntastic'
-"Plug 'Shougo/vimproc.vim'
-Plug 'Valloric/YouCompleteMe'
+" Plug 'Shougo/vimproc.vim'
+" Plug 'Valloric/YouCompleteMe'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'sudar/vim-arduino-snippets', {'for': 'arduino'}
 Plug 'bonsaiben/bootstrap-snippets', {'for': 'html'}
-Plug 'lervag/vim-latex', {'for': 'latex'}
+" Plug 'lervag/vim-latex', {'for': 'latex'}
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'majutsushi/tagbar'
 Plug 'raimondi/delimitMate'
 Plug 'tomtom/tcomment_vim'
 Plug 'kien/ctrlp.vim'
-Plug 'tpope/vim-speeddating'
+" Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'haya14busa/incsearch.vim'
-Plug 'baeuml/summerfruit256.vim'
-Plug 'jnurmine/Zenburn'
-Plug 'closetag.vim', {'for': 'html'}
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-easytags'
+" Plug 'baeuml/summerfruit256.vim'
+" Plug 'jnurmine/Zenburn'
+" Plug 'closetag.vim', {'for': 'html'}
+" Plug 'xolox/vim-misc'
+" Plug 'xolox/vim-easytags'
 Plug 'scrooloose/nerdtree'
-Plug 'jmcantrell/vim-virtualenv', {'for': 'python'}
+" Plug 'jmcantrell/vim-virtualenv', {'for': 'python'}
 Plug 'bling/vim-airline'
 Plug 'JuliaLang/julia-vim', {'for': 'julia'}
-Plug 'jplaut/vim-arduino-ino'", {'for': 'arduino'}
+" Plug 'jplaut/vim-arduino-ino'", {'for': 'arduino'}
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'argtextobj.vim'
-Plug 'bkad/CamelCaseMotion'
-Plug 'ldong/vim_loremipsum'
+" Plug 'bkad/CamelCaseMotion'
+" Plug 'ldong/vim_loremipsum'
 Plug 'wting/rust.vim', {'for': 'rust'}
 Plug 'justinmk/vim-sneak'
-"Plug 'paranoida/vim-airlineish'
-"Plug 'Yggdroot/indentLine'
+" Plug 'paranoida/vim-airlineish'
+" Plug 'Yggdroot/indentLine'
 Plug 'junegunn/vim-easy-align'
-"Plug 'Shougo/neocomplete.vim'
-"Plug 'Shougo/neosnippet.vim'
-"Plug 'ajh17/VimCompletesMe'
+" Plug 'Shougo/neocomplete.vim'
+" Plug 'Shougo/neosnippet.vim'
+" Plug 'ajh17/VimCompletesMe'
 Plug 'altercation/vim-colors-solarized'
-Plug 'derekwyatt/vim-fswitch'
-Plug 'airblade/vim-gitgutter'
-Plug 'ryanss/vim-hackernews'
-Plug 'jmanoel7/vim-games'
+" Plug 'derekwyatt/vim-fswitch'
+" Plug 'airblade/vim-gitgutter'
+" Plug 'ryanss/vim-hackernews'
+" Plug 'jmanoel7/vim-games'
+" Plug 'jeaye/color_coded'
+Plug 'klen/python-mode'
+Plug 'elixir-lang/vim-elixir'
+" Plug 'phildawes/racer'
 call plug#end()
 
 " Change leader to space
@@ -53,7 +57,7 @@ let mapleader="\<space>"
 
 " Plugin settings
 "YouCompleteMe
-let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+" let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 "Tagbar
 nmap <F8> :TagbarToggle<CR>
 "Syntastic
@@ -61,21 +65,21 @@ let g:syntastic_check_on_open=1
 let g:syntastic_enable_signs=1
 let g:syntastic_cpp_compiler='clang++'
 let g:syntastic_cpp_compiler_options = '-std=c++11 -Wall -Wextra'
-"Ultisnips
+" Ultisnips
 let g:UltiSnipsExpandTrigger='<c-l>'
 "Additional snippets
 let g:snips_author='Anthony Clays'
 let g:snips_email='anthonyclays@gmail.com'
 let g:snips_github='anthonyclays'
 "Incsearch
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
+map / <Plug>(incsearch-forward)
+map ? <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
 "Julia-vim
 let g:latex_to_unicode_tab = 0
 let g:latex_to_unicode_auto = 1
 " LaTeX
-let g:tex_flavor = "latex"
+" let g:tex_flavor = "latex"
 " Power/airline
 "source /usr/share/vim/addons/plugin/powerline.vim
 let g:airline_powerline_fonts = 1
@@ -100,33 +104,25 @@ omap T <Plug>Sneak_T
 " TComment maps to <leader>c
 nmap <leader>c :TComment<CR>
 vmap <leader>c :TCommentBlock<CR>
-" let Neosnippet use snipmate snippets (for Julia)
-let g:neosnippet#enable_snipmate_compatibility = 1
-let g:neosnippet#snippets_directory = '~/.vim/plugged/vim-snippets/snippets'
 " CtrlP
 "let g:ctrlp_user_command = 'ag %s --nocolor -g ""'
 " vim-easy-align
 vmap <Enter> <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
-" camelCaseMotion
-map <silent> w <Plug>CamelCaseMotion_w
-map <silent> b <Plug>CamelCaseMotion_b
-map <silent> e <Plug>CamelCaseMotion_e
-sunmap w
-sunmap b
-sunmap e
-" Eclim settings
-nmap <F7> :ProjectTree<CR>
 " fswitch maps
-nnoremap <leader>hs :FSHere<CR>
-nnoremap <leader>hl :FSLeft<CR>
-nnoremap <leader>hr :FSRight<CR>
+" nnoremap <leader>hs :FSHere<CR>
+" nnoremap <leader>hl :FSLeft<CR>
+" nnoremap <leader>hr :FSRight<CR>
 " Gitgutter maps
-nnoremap <leader>ha <Plug>GitGutterStageHunk
-nnoremap <leader>hu <Plug>GitGutterRevertHunk
-nnoremap <leader>hv <Plug>GitGutterPreviewHunk
+" nnoremap <leader>ha <Plug>GitGutterStageHunk
+" nnoremap <leader>hu <Plug>GitGutterRevertHunk
+" nnoremap <leader>hv <Plug>GitGutterPreviewHunk
 " nerdtree maps
 nnoremap <F3> :NERDTreeToggle<CR>
+" Python-mode settings
+let g:pymode_breakpoint_bind = '' " remove <leader>b breakpoint
+" racer settings
+" let g:racer_cmd
 
 " Basic vim options
 set tabstop=4
@@ -152,6 +148,7 @@ set clipboard="autoselect"
 set colorcolumn=80
 set cursorcolumn cursorline
 set ttyfast
+syn sync minlines=40
 "set showbreak=↪
 
 " Set the colorscheme
@@ -173,7 +170,7 @@ nnoremap <Down> :echoe "Use j"<CR>
 nnoremap Q <nop>
 
 " Associate .pde filetype with Arduino
-autocmd! BufNewFile,BufRead *.pde setlocal ft=arduino
+" autocmd! BufNewFile,BufRead *.pde setlocal ft=arduino
 
 " More mapleader commands
 nnoremap <Leader>o :CtrlP<CR>
@@ -192,7 +189,5 @@ nnoremap j gj
 nnoremap k gk
 " make Y more natural
 nnoremap Y y$
-" make - do something useful
-nnoremap - ^
 
 let g:python_host_prog='/usr/bin/python'
