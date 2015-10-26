@@ -3,7 +3,7 @@
 # ----------
 mpd_host = "localhost"
 mpd_port = "2600"
-mpd_music_dir = "/home/wraith/Music/"
+mpd_music_dir = "/home/anthony/Music/"
 mpd_connection_timeout = "5"
 mpd_crossfade_time = "5"
 # ----
@@ -29,7 +29,7 @@ now_playing_suffix = "$/b"
 # Colors
 # ------
 colors_enabled = "yes"
-color1 = "orange"
+color1 = "cyan"
 color2 = "black"
 empty_tag_color = "red"
 main_window_color = "white"
@@ -49,21 +49,19 @@ progressbar_look = "─☊ "
 # ----
 playlist_separate_albums = "no"
 cyclic_scrolling = "no"
-fancy_scrolling = "yes"
-display_screens_numbers_on_start = "no"
+# fancy_scrolling = "yes"
+# display_screens_numbers_on_start = "no"
 regular_expressions = "extended"
 playlist_display_mode = "columns"
 browser_display_mode = "columns"
 external_editor = "/usr/bin/vim"
 ignore_leading_the = "yes"
-lyrics_database = "1" # 1 - lyricwiki.org | 2 - lyricsplugin.com
+# lyrics_database = "1" # 1 - lyricwiki.org | 2 - lyricsplugin.com
 incremental_seeking = "yes"
 clock_display_seconds = "yes"
-display_bitrate = "yes"
 autocenter_mode = "yes"
 display_bitrate = "yes"
 follow_now_playing_lyrics = "yes"
-display_bitrate = "yes"
 alternative_ui_separator_color = "white"
 user_interface = "alternative"
 enable_window_title = "yes"
@@ -74,4 +72,4 @@ visualizer_fifo_path = "/tmp/mpd.fifo"
 visualizer_output_name = "fifo"
 visualizer_type = "spectrum" (spectrum/wave)
 visualizer_look = "●░"
-visualize_sync_interval = "15"
+# visualize_sync_interval = "15"

@@ -47,9 +47,10 @@ Plug 'altercation/vim-colors-solarized'
 " Plug 'ryanss/vim-hackernews'
 " Plug 'jmanoel7/vim-games'
 " Plug 'jeaye/color_coded'
-Plug 'klen/python-mode'
+" Plug 'klen/python-mode'
 Plug 'elixir-lang/vim-elixir'
 " Plug 'phildawes/racer'
+Plug 'chriskempson/base16-vim'
 call plug#end()
 
 " Change leader to space
@@ -83,7 +84,7 @@ let g:latex_to_unicode_auto = 1
 " Power/airline
 "source /usr/share/vim/addons/plugin/powerline.vim
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'solarized'
+let g:airline_theme = 'base16'
 set laststatus=2
 set showtabline=2
 set noshowmode
@@ -138,7 +139,7 @@ set autoindent smartindent
 " set textwidth=79
 set formatoptions=c,q,r,t
 set ruler
-set background=light
+set background=dark
 set mouse=a
 set encoding=utf-8
 set t_Co=256
@@ -155,7 +156,8 @@ syn sync minlines=40
 "colorscheme elflord
 "colorscheme summerfruit256
 "colorscheme zenburn
-colorscheme solarized
+" colorscheme solarized
+colorscheme base16-default
 
 filetype plugin indent on
 syntax on

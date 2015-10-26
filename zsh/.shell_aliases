@@ -20,9 +20,6 @@ alias ll='exa -l'
 alias e='exa -l'
 
 # git
-alias wow='git status'
-alias such=git
-alias very=git
 g() {
     if [ $# -eq 0 ];
     then
@@ -45,9 +42,7 @@ alias dmesg='dmesg -T'
 alias sys='sudo systemctl'
 compdef sys='systemctl'
 alias vi='vim -u NONE'
-#alias vim='vim.athena'
 alias mpv='mpv --vo=opengl-hq'
-alias tmux='tmux -2'
 
 # grep
 alias grep='grep --color=auto'
@@ -56,45 +51,17 @@ alias psf='pgrep -lf'
 # Misc
 alias df=pydf
 
-# Lelz
-alias fucking='sudo'
-compdef fucking='sudo'
 alias please='sudo !!'
 alias starwars='telnet towel.blinkenlights.nl'
-alias fuck='killall -9'
-# e.g. `fuck firefox`
-compdef fuck='killall'
-alias poweroff='systemctl poweroff'
-alias reboot='systemctl reboot'
 
 # Help for HTTP status codes
 function httpcode() {
     curl http://httpcode.info/$1
 }
-# Terminology only
-function httpcat() {
-    typop /usr/share/statuscodecats/$1.jpg
-}
-function httpdog() {
-    typop /usr/share/statuscodedogs/$1.jpg
-}
 
 # vim
 alias :wq="echo You\'re not in vim, dummy"
 alias :q="echo You\'re not in vim, dummy"
-
-# colored man
-# man() {
-#     env \
-#     LESS_TERMCAP_mb=$(printf "\e[38;5;146m") \
-#     LESS_TERMCAP_md=$(printf "\e[38;5;3m") \
-#     LESS_TERMCAP_me=$(printf "\e[38;5;138m") \
-#     LESS_TERMCAP_se=$(printf "\e[38;5;246m") \
-#     LESS_TERMCAP_so=$(printf "\e[38;5;146m") \
-#     LESS_TERMCAP_ue=$(printf "\e[38;5;246m") \
-#     LESS_TERMCAP_us=$(printf "\e[38;5;174m") \
-#     man "$@"
-# }
 
 # colored man
 man() {
@@ -114,12 +81,11 @@ launch() {
     nohup "$@" &>/dev/null &
     disown
 }
+compdef launch=''
+
 alias okular='launch okular'
-compdef launch='sudo'
 compdef okular='okular'
 
 # alias ipython=ptipython
 alias p=ptipython
-alias j="/opt/julia-1c7e701efc/bin/julia -q"
-
-# alias emacs='emacs -nw'
+alias j="/opt/julia/julia"

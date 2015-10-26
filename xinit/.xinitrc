@@ -34,9 +34,9 @@ export SSH_AUTH_SOCK   # enable gpg-agent for ssh
 
 ## Possible WMs/DEs, uncomment the one you want to use
 # exec startfluxbox
-# exec i3
+exec i3
 # exec startkde
-exec gnome-session
+# exec gnome-session
 # exec enlightenment_start
 # exec cinnamon-session
 # exec startxfce4
