@@ -16,7 +16,6 @@
 	ba = branch --all
 	co = checkout
 	c = commit
-	br = branch
 	s = !git status -sb && git stash list
 	unstage = reset HEAD --
 	last = log -1 HEAD
@@ -43,3 +42,5 @@
 	changed = yellow
 	untracked = cyan
 	nobranch = red white
+[remote "origin"]
+	fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
