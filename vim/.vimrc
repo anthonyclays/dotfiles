@@ -1,10 +1,10 @@
 set nocompatible
 
 call plug#begin('~/.vim/plugged')
-" Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/syntastic'
 " Plug 'Shougo/vimproc.vim'
-" Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'sudar/vim-arduino-snippets', {'for': 'arduino'}
@@ -15,7 +15,7 @@ Plug 'majutsushi/tagbar'
 Plug 'raimondi/delimitMate'
 Plug 'tomtom/tcomment_vim'
 Plug 'kien/ctrlp.vim'
-" Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'haya14busa/incsearch.vim'
@@ -27,7 +27,7 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'scrooloose/nerdtree'
 " Plug 'jmcantrell/vim-virtualenv', {'for': 'python'}
 Plug 'bling/vim-airline'
-Plug 'JuliaLang/julia-vim', {'for': 'julia'}
+Plug 'vim-airline/vim-airline-themes'
 " Plug 'jplaut/vim-arduino-ino'", {'for': 'arduino'}
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'argtextobj.vim'
@@ -51,6 +51,12 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'elixir-lang/vim-elixir'
 " Plug 'phildawes/racer'
 Plug 'chriskempson/base16-vim'
+Plug 'JuliaLang/julia-vim'
+Plug 'cespare/vim-toml'
+Plug 'idris-hackers/idris-vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" Plug 'paradigm/TextObjectify'
+Plug 'sjl/gundo.vim'
 call plug#end()
 
 " Change leader to space
@@ -58,7 +64,8 @@ let mapleader="\<space>"
 
 " Plugin settings
 "YouCompleteMe
-" let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+let g:ycm_rust_src_path='/usr/local/rust/rustc-nightly/src'
 "Tagbar
 nmap <F8> :TagbarToggle<CR>
 "Syntastic
@@ -124,6 +131,7 @@ nnoremap <F3> :NERDTreeToggle<CR>
 let g:pymode_breakpoint_bind = '' " remove <leader>b breakpoint
 " racer settings
 " let g:racer_cmd
+nnoremap <F5> :GundoToggle<CR>
 
 " Basic vim options
 set tabstop=4
@@ -147,7 +155,7 @@ set timeoutlen=1000
 set ttimeoutlen=0
 set clipboard="autoselect"
 set colorcolumn=80
-set cursorcolumn cursorline
+set nocursorcolumn cursorline
 set ttyfast
 syn sync minlines=40
 "set showbreak=↪
@@ -156,11 +164,11 @@ syn sync minlines=40
 "colorscheme elflord
 "colorscheme summerfruit256
 "colorscheme zenburn
-" colorscheme solarized
-colorscheme base16-default
+colorscheme solarized
+" colorscheme base16-default
 
 filetype plugin indent on
-syntax on
+syntax enable
 
 " Get off my lawn
 nnoremap <Left> :echoe "Use h"<CR>
@@ -183,8 +191,10 @@ nnoremap <Leader>n :bnext<CR>
 nmap <Leader><Leader> V
 "nnoremap <Leader>x :wq<CR>
 nnoremap <Leader>t :tag<CR>
-nnoremap <Leader>/ :nohlsearch<CR>
-nnoremap <Leader>rtw :%s/\s\+$//e<cr>
+nnoremap <Leader>/ :nohl<CR>
+nnoremap <Leader>rtw :%s/\s\+$//e<CR>
+nnoremap <Leader>] :YcmCompleter GoTo<CR>
+nnoremap <Leader>u :GundoToggle<CR>
 
 " make j and k more natural
 nnoremap j gj
