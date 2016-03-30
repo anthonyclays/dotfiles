@@ -79,9 +79,9 @@ man() {
 # ingore output crap from graphical programs
 launch() {
     nohup "$@" &>/dev/null &
-    disown
+    disown %
 }
-compdef launch=''
+compdef launch='sudo'
 
 alias okular='launch okular'
 compdef okular='okular'

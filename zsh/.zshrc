@@ -28,6 +28,7 @@ export BROWSER=firefox
 export USE_CCACHE=1
 export PYTHONPATH=/usr/lib/python2.7/site-packages
 export WORKON_HOME=~/Envs
+export PATH=~/bin:~/.cabal/bin:~/.multirust/toolchains/nightly/cargo/bin:$PATH
 
 # create a zkbd compatible hash;
 # to add other keys to this hash, see: man 5 terminfo
@@ -39,9 +40,10 @@ autoload -U colors && colors
 #autoload -U promptinit && promptinit
 autoload -Uz compinit && compinit
 
-#source /etc/environment
-source /usr/share/zsh/plugins/zsh-syntax-highlighting.zsh
-source /usr/share/powerline/bindings/zsh/powerline.zsh
+# source /etc/environment
+# source /usr/share/zsh/plugins/zsh-syntax-highlighting.zsh
+source /opt/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/local/lib/python2.7/dist-packages/powerline/bindings/zsh/powerline.zsh
 source /usr/local/bin/virtualenvwrapper.sh
 source ~/.shell_aliases
 
@@ -57,3 +59,5 @@ fancy-ctrl-z () {
 }
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
