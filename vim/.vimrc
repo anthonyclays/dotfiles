@@ -3,60 +3,45 @@ set nocompatible
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/syntastic'
+Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'Shougo/vimproc.vim'
-Plug 'Valloric/YouCompleteMe'
+" Plug 'Valloric/YouCompleteMe'
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'roxma/nvim-completion-manager'
+Plug 'Shougo/echodoc.vim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'sudar/vim-arduino-snippets', {'for': 'arduino'}
-Plug 'bonsaiben/bootstrap-snippets', {'for': 'html'}
-" Plug 'lervag/vim-latex', {'for': 'latex'}
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'majutsushi/tagbar'
 Plug 'raimondi/delimitMate'
 Plug 'tomtom/tcomment_vim'
-Plug 'kien/ctrlp.vim'
+" Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'haya14busa/incsearch.vim'
-" Plug 'baeuml/summerfruit256.vim'
-" Plug 'jnurmine/Zenburn'
-" Plug 'closetag.vim', {'for': 'html'}
-" Plug 'xolox/vim-misc'
-" Plug 'xolox/vim-easytags'
 Plug 'scrooloose/nerdtree'
 " Plug 'jmcantrell/vim-virtualenv', {'for': 'python'}
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-" Plug 'jplaut/vim-arduino-ino'", {'for': 'arduino'}
 Plug 'michaeljsmith/vim-indent-object'
-Plug 'argtextobj.vim'
-" Plug 'bkad/CamelCaseMotion'
-" Plug 'ldong/vim_loremipsum'
-Plug 'wting/rust.vim', {'for': 'rust'}
+Plug 'vim-scripts/argtextobj.vim'
+Plug 'rust-lang/rust.vim', {'for': 'rust'}
 Plug 'justinmk/vim-sneak'
-" Plug 'paranoida/vim-airlineish'
-" Plug 'Yggdroot/indentLine'
 Plug 'junegunn/vim-easy-align'
-" Plug 'Shougo/neocomplete.vim'
-" Plug 'Shougo/neosnippet.vim'
-" Plug 'ajh17/VimCompletesMe'
 Plug 'altercation/vim-colors-solarized'
-" Plug 'derekwyatt/vim-fswitch'
-" Plug 'airblade/vim-gitgutter'
-" Plug 'ryanss/vim-hackernews'
-" Plug 'jmanoel7/vim-games'
-" Plug 'jeaye/color_coded'
 " Plug 'klen/python-mode'
 Plug 'elixir-lang/vim-elixir'
-" Plug 'phildawes/racer'
 Plug 'chriskempson/base16-vim'
 Plug 'JuliaLang/julia-vim'
 Plug 'cespare/vim-toml'
 Plug 'idris-hackers/idris-vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-" Plug 'paradigm/TextObjectify'
 Plug 'sjl/gundo.vim'
+Plug 'tikhomirov/vim-glsl'
+Plug 'vim-scripts/idp.vim'
+Plug 'mk12/vim-lean'
+Plug 'peterhoeg/vim-qml'
 call plug#end()
 
 " Change leader to space
@@ -91,7 +76,8 @@ let g:latex_to_unicode_auto = 1
 " Power/airline
 "source /usr/share/vim/addons/plugin/powerline.vim
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'base16'
+let g:airline_theme = 'solarized'
+let g:airline_solarized_bg='dark'
 set laststatus=2
 set showtabline=2
 set noshowmode
@@ -145,7 +131,7 @@ set ignorecase smartcase
 set backspace=2
 set autoindent smartindent
 " set textwidth=79
-set formatoptions=c,q,r,t
+set formatoptions=c,q,r,t,j
 set ruler
 set background=dark
 set mouse=a
@@ -160,12 +146,12 @@ set ttyfast
 syn sync minlines=40
 "set showbreak=↪
 
+" Start scrolling before hitting an edge
+set scrolloff=3
+set sidescrolloff=5
+
 " Set the colorscheme
-"colorscheme elflord
-"colorscheme summerfruit256
-"colorscheme zenburn
 colorscheme solarized
-" colorscheme base16-default
 
 filetype plugin indent on
 syntax enable
@@ -179,27 +165,45 @@ nnoremap <Down> :echoe "Use j"<CR>
 " FUCK YOU EX
 nnoremap Q <nop>
 
-" Associate .pde filetype with Arduino
-" autocmd! BufNewFile,BufRead *.pde setlocal ft=arduino
-
 " More mapleader commands
-nnoremap <Leader>o :CtrlP<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>b :bprev<CR>
 nnoremap <Leader>n :bnext<CR>
-nmap <Leader><Leader> V
-"nnoremap <Leader>x :wq<CR>
 nnoremap <Leader>t :tag<CR>
 nnoremap <Leader>/ :nohl<CR>
 nnoremap <Leader>rtw :%s/\s\+$//e<CR>
-nnoremap <Leader>] :YcmCompleter GoTo<CR>
 nnoremap <Leader>u :GundoToggle<CR>
 
-" make j and k more natural
+" make Y, j and k more natural
+nnoremap Y y$
 nnoremap j gj
 nnoremap k gk
-" make Y more natural
-nnoremap Y y$
 
-let g:python_host_prog='/usr/bin/python'
+autocmd FileType html setlocal shiftwidth=2 tabstop=2
+autocmd FileType htmldjango setlocal shiftwidth=2 tabstop=2
+autocmd FileType qml setlocal shiftwidth=2 tabstop=2
+
+" nvim completion manager
+set shortmess+=c
+inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" language client
+set hidden
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['rls'],
+    \ 'ocaml': ['ocaml-language-server'],
+    \ }
+    " \ 'python': ['pyls'],
+let g:LanguageClient_autoStart = 1
+let g:LanguageClient_signColumnAlwaysOn = 0
+nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> <Leader>f :call LanguageClient_textDocument_documentSymbol()<CR>
+nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
+
+" neovim-specific options
+if has('nvim')
+    set inccommand=nosplit
+endif

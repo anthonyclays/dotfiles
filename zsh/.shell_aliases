@@ -1,6 +1,6 @@
 # make `make` multicore
-alias make="make -j5"
-alias mk="make -j5"
+alias make="make -j9"
+alias mk="make -j9"
 
 # cp recursive & verbose
 alias cp='cp -Rv'
@@ -17,7 +17,7 @@ alias ll='exa -l'
 # alias ll='ls -lhF --human-readable'
 # alias l='ls -lhF --human-readable'
 #alias sl='sl -aFc'
-alias e='exa -l'
+alias e='exa --long --binary --group --group-directories-first'
 
 # git
 g() {
@@ -41,8 +41,9 @@ alias insult='wget http://www.randominsults.net -O - 2>/dev/null | grep \<strong
 alias dmesg='dmesg -T'
 alias sys='sudo systemctl'
 compdef sys='systemctl'
+alias vim=nvim
 alias vi='vim -u NONE'
-alias mpv='mpv --vo=opengl-hq'
+alias mpv='mpv --profile=opengl-hq'
 
 # grep
 alias grep='grep --color=auto'
@@ -89,3 +90,15 @@ compdef okular='okular'
 # alias ipython=ptipython
 alias p=ptipython
 alias j="/opt/julia/julia"
+
+function factor() {
+    yafu "factor($1)"
+}
+
+compdef c=cd
+function c() {
+    if [[ -n "$1" ]] && [[ -d "$1" ]]; then
+        e $1
+    fi
+    cd $1
+}
