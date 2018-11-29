@@ -31,7 +31,7 @@ g() {
 compdef g=git
 
 # random
-alias ping=prettyping.sh
+alias ping='prettyping.sh --nolegend'
 alias showip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias whatyearisit='date && hostname && cat /etc/*-release && whoami && pwd'
 alias pong='ping google.com'
@@ -90,6 +90,9 @@ compdef okular='okular'
 # alias ipython=ptipython
 alias p=ptipython
 alias j="/opt/julia/julia"
+
+alias nmap='sudo nmap -n --reason'
+alias tcpdump='sudo tcpdump -n -X -v --snapshot-length=0'
 
 function factor() {
     yafu "factor($1)"

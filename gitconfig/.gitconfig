@@ -43,5 +43,5 @@
     changed = yellow
     untracked = cyan
     nobranch = red white
-[remote "origin"]
-    fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
+# [remote "origin"]
+#     fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
